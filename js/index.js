@@ -76,7 +76,10 @@ $(function() {
 		        for (var i = 0; i < data.privileges.length; i++) {
 		            songsId.push(data.privileges[i].id);
 		        }
-		    }
+		    },
+			error :function(data){
+				console.log(data,"失败了。。。。")
+			}
 		})	
 	}
 	
