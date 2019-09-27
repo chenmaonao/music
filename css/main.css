@@ -1,0 +1,319 @@
+body,
+html {
+	margin: 0;
+	height: 100%
+}
+
+body {
+	font-size: 0.6rem;
+}
+
+ul,
+li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.auto-img {
+	width: 100%;
+	display: block;
+}
+
+.main-box {
+	height: 100%;
+	background-image: linear-gradient(#C57D8E, #79293D);
+}
+
+.bottom-audio {
+	position: fixed;
+	background-color: #1e1112e;
+	width: 100%;
+	height: 2rem;
+	bottom: 0;
+}
+
+.bottom-audio .img-box {
+	background-image: url("http://img.52jbj.com/d/file/170724/20170724003329766.png");
+	background-size: cover;
+	position: absolute;
+	top: 50%;
+	left: 0.3rem;
+	margin-top: -0.5rem;
+	width: 1.2rem;
+	height: 1.2rem;
+}
+
+.bottom-audio .progress {
+	height: 0.1rem;
+	position: absolute;
+	width: calc(100% - 1.8rem);
+	top: 0.18rem;
+	left: 0.9rem;
+	background-color: #dddddd;
+	border-radius: 0.1rem;
+}
+
+.progress .activate {
+	width: 0;
+	height: 100%;
+	background-color: #00A2E8;
+	border-radius: 0.1rem;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.progress .mask {
+	width: 0.2rem;
+	height: 0.2rem;
+	border-radius: 0.1rem;
+	background-color: white;
+	position: absolute;
+	top: -0.05rem;
+
+	box-shadow: 0 0 0.2rem 0 #fff;
+	animation: mask 3s linear 0s infinite alternate;
+}
+
+@keyframes mask {
+	from {
+		box-shadow: 0 0 3px 2px #fff;
+	}
+
+	to {
+		box-shadow: 0 0 3px 0px #fff;
+	}
+}
+
+/* .mask>span{
+	width: 0.08rem;
+	height: 0.08rem;
+	display: block;
+	position: absolute;
+	border-radius: 0.05rem;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	background-color: #E53EEE;
+	
+} */
+.progress .layer {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 160%;
+	z-index: 2;
+}
+
+.bottom-audio .music-control {
+	z-index: 5;
+	width: 3.9rem;
+	height: 1.1rem;
+	position: absolute;
+	margin-left: 1.8rem;
+	margin-top: 0.5rem;
+}
+
+.music-control div {
+
+	border-radius: 0.6rem;
+	width: 0.7rem;
+	height: 0.7rem;
+	padding: 0.2rem;
+	margin-right: 0.26rem;
+	float: left;
+}
+
+.auto-img {
+	width: 100%;
+	display: block;
+}
+
+.music-control div:last-child {
+	margin-right: 0;
+
+}
+
+.music-control .play-pause {
+	padding-top: 0.25rem;
+	width: 0.6rem;
+	height: 0.6rem;
+}
+
+.duration {
+	font-size: 0.28rem;
+	color: #FFFFFF;
+	position: absolute;
+	top: 0.05rem;
+	right: 0;
+}
+
+.currenTime {
+	font-size: 0.28rem;
+	color: #FFFFFF;
+	position: absolute;
+	top: 0.05rem;
+	left: 0;
+}
+
+.main-box .top-nav {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	height: 1.1rem;
+	background-color: #BB7685;
+	z-index: 3;
+	
+}
+
+.main-box .songlist {
+	padding-top: calc(1.1rem);
+	height: calc(100% - 3.2rem);
+	overflow-y: auto;
+}
+
+.songlist>ul>li {
+	display: block;
+	padding: 0.15rem 1.4rem;
+	height: 1rem;
+	background-color: #FFFFFF;
+	position: relative;
+
+}
+
+.songlist .song {
+	height: 0.5rem;
+	font-size: 0.4rem;
+}
+
+.songlist .singer {
+	height: 0.5rem;
+	font-size: 0.3rem;
+	color: #333333;
+
+}
+
+.show-img {
+	display: none;
+	position: absolute;
+	top: calc(1.1rem);
+	height: calc(100% - 3.1rem);
+	width: 100%;
+	background-image: linear-gradient(#C57D8E, #79293D);
+	overflow: hidden;
+}
+
+.photo {
+	position: relative;
+	width: 5rem;
+	height: 5rem;
+	padding: 0.5rem;
+	border-radius: 6rem;
+	background-image: url(../../meizu/img/dddeeff.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: #000000;
+	background-origin: content-box;
+	background-clip: content-box;
+	box-shadow: 0px 0px 1px 25px #000000 inset;
+	top: 10%;
+	left: 0;
+	margin: auto;
+	/* margin-top: -3rem; */
+	/* transform: rotateZ(20deg); */
+
+	animation: rotate 16s linear 0s infinite;
+}
+
+@keyframes rotate {
+	from {
+		transform: rotateZ(360deg);
+	}
+
+	to {
+		transform: rotateZ(0deg);
+	}
+}
+
+@media screen and (min-width: 400px) {
+	.show-img .photo {
+		width: 200px;
+		height: 200px;
+		padding: 20px;
+	}
+}
+.show-img .show-option{
+	position: absolute;
+	width: 100%;
+	height: 1rem;
+	bottom: 0.2rem;
+}
+.show-option>ul{
+	height: 100%;
+	width: 7rem;
+	margin: 0 auto;
+}
+.show-option>ul>li{
+	float: left;
+	height: 0.5rem;
+	padding: 0.5rem 0.625rem;
+	width: 0.5rem;
+	
+}
+.show-option>ul>li:last-child{
+	
+	height: 0.4rem;
+	padding: 0.55rem 0.675rem;
+	width: 0.4rem;
+}
+
+
+
+.mode{
+	position: absolute;
+	width: 2rem;
+	height: 1rem;
+	top: 0.6rem;
+	right: 0;
+}
+.mode>div{
+	float: left;
+	width: 1rem;
+	height: 1rem;
+}
+.play-mode .mymode{
+	margin: 0.25rem;
+	width: 0.5rem;
+	height: 0.5rem;
+	background-image: url(../img/shunxubofang.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.play-rate .myrate{
+	margin: 0.25rem 0;
+	width: 1rem;
+	height: 0.5rem;
+	font-size: 0.2rem;
+	color: #FFFFFF;
+	position: relative;
+}
+.myrate>li{
+	display: none;
+	position: absolute;
+	height: 0.5rem;
+	line-height: 0.5rem;
+	white-space: nowrap;
+}
+.myrate .activate{
+	display: block;
+}
+.song-img{
+	position: absolute;
+	width: 1rem;
+	height: 1rem;
+	border-radius: 0.5rem;
+	top: 0.15rem;
+	left: 0.15rem;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,maximum-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		
+		<title></title>
+		<link href="./css/main.css" rel="stylesheet" type="text/css" />
+
+	</head>
+	<body>
+
+		<div class="main-box">
+			<div class="top-nav"></div>
+
+			<div class="songlist">
+				
+
+			</div>
+
+			<!-- 专辑图片 -->
+			<div class="show-img">
+				<div class="photo"></div>
+				
+				<div class="show-option">
+					<ul>
+						<li><img src="./img/heart.png" class="auto-img heart" data-heart = "0" /></li>
+						<li><img src="./img/下载.png" class="auto-img"/></li>
+						<li><img src="./img/评论.png" class="auto-img"/></li>
+						<li><img src="./img/更多.png" class="auto-img"/></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="bottom-audio">
+				<span class="currenTime">00:00</span>
+				<span class="duration">00:00</span>
+				<audio id="myAudio" data-id="006" preload data-staus="0" data-touch="true" src=""
+				 loop="loop"></audio>
+
+				<div class="img-box"></div>
+
+				<div class="progress">
+					<div class="activate"></div>
+					<div class="mask"><span></span></div>
+					<div class="layer"></div>
+				</div>
+
+				<div class="music-control">
+					<div class="previous"><img class="auto-img" src="./img/上一首.png" /></div>
+					<div class="play-pause"><img class="auto-img" src="./img/播放.png" /></div>
+					<div class="next"><img class="auto-img" src="./img/下一首.png" /></div>
+				</div>
+
+				<!-- 播放模式 -->
+				<div class="mode">
+					
+					<div class="play-rate">
+						<ul class="myrate">
+							<li data-rate = "0.75">0.75倍</li>
+							<li data-rate = "1.00" class="activate">1.00倍</li>
+							<li data-rate = "1.25">1.25倍</li>
+							<li data-rate = "1.50">1.50倍</li>
+						</ul>
+					</div>
+					
+					<div class="play-mode">
+						<div class="mymode" data-mode = "ordinal"></div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+
+		<script src="./js/jquery-3.4.1.min.js"></script>
+		<script src="./js/rem.js"></script>
+		<script src="./js/index.js"></script>
+		
+	</body>
+</html>
