@@ -3,6 +3,8 @@ $(function() {
 	var songlist;
 	var myAudio = document.getElementById("myAudio");
 	var url = 'https://music.163.com/song/media/outer/url?id=';
+	var songStar = 0;
+	var songEnd = 20;
 	//var url = 'https://music.163.com/song/media/outer/url?id=1381755293'
 	//计算时间
 	function caltime(time) {
@@ -33,20 +35,29 @@ $(function() {
 		console.log($(this))
 		$(".img-box").css("backgroundImage", "url(" + imgUrl + ")");
 		$(".show-img .photo").css("backgroundImage", "url(" +imgUrl + ")");
+		
+		$(".mask").css("left", 0 + "px");
+		$(".activate").css("width", 0 + "px");
+		$(".play-pause").children().attr("src", "./img/播放.png")
+		
 		$("#myAudio")[0].oncanplay = function() {
 			$("#myAudio")[0].play();
 			$(".play-pause").children().attr("src", "./img/暂停.png")
 			$("#myAudio").data("staus", 1);
-			console.log("///////");
-
+		    var self = this;
+			$(".duration").text(caltime(self.duration));
+			
 		}
 
 	}
 
-	$("#myAudio")[0].oncanplay = function() {
-		//console.log("currenttime",this.currentTime)
 
-	}
+// 	$("#myAudio")[0].oncanplay = function() {
+// 		//console.log("currenttime",this.currentTime)
+// 
+// 	}
+
+
 
 	
 	var songsId = [];
@@ -88,13 +99,13 @@ $(function() {
 		})	
 	}
 	
-	var songStar = 0;
-	var songEnd = 20;
+	
 	
 	
 	function addSong(data,songStar,songEnd) {
 				
-				var ul = $("<ul></ul>");
+				
+				var ul = document.createDocumentFragment();
 				for (var i = songStar; i < songEnd; i++) {
 					var sg = [];
 					for(var j = 0 ;j<data[i].ar.length;j++){
@@ -109,19 +120,27 @@ $(function() {
 						var id = $(this).data("id");
 						console.log(id)
 						changeMusic(id);
+						$(".playSong").removeClass("playSong");
+						$(this).addClass("playSong");
 						$(".myrate>li").removeClass("activate");
 						$(".myrate>li").eq(1).addClass("activate");
 					})
-					ul.append(li);
+					li = li[0]
+					ul.appendChild(li);
 				}
-				$(".songlist").append(ul);
+				$(".songlist>ul").append(ul);
+				songStar = songEnd;
+				songEnd += 20;
+				console.log(songStar,songEnd)
 			}
 			
 	console.log(songsDetail)
 	addSong(songsDetail,songStar,songEnd);
+	songStar = songEnd;
+	songEnd += 20;
 	
 
-	var maxLeft = $(".layer").width();
+	var maxLeft = $(".layer").width()-$(".mask").width();
 
 	function removeMask(e) {
 		var clientX = e.touches[0].clientX;
@@ -160,8 +179,8 @@ $(function() {
 		$("#myAudio")[0].currentTime = $("#myAudio")[0].duration * proportion;
 
 	})
-
-
+	
+	
 
 	$("#myAudio")[0].ontimeupdate = function() {
 		// console.log("测试========？");
@@ -173,7 +192,7 @@ $(function() {
 				clearTimeout(timers[i]);
 			}
 
-			$(".duration").text(caltime(self.duration));
+			//$(".duration").text(caltime(self.duration));
 			$(".currenTime").text(caltime(self.currentTime));
 
 			if ($(self).data("touch")) {
@@ -218,7 +237,6 @@ $(function() {
 	$(".img-box").on("click", function() {
 
 		$(".show-img").toggle();
-
 
 	})
 
@@ -272,5 +290,32 @@ $(function() {
 		var rate = $(this).find("li").eq(a).addClass("activate").data("rate");
 		console.log(rate)
 		myAudio.playbackRate = rate;
+	})
+	var timers = [];
+	
+	$(".songlist").on("scroll",function(){
+		
+		var b = $(".songlist>ul").height();
+		var a = $(".songlist").height();
+		var c = $(".songlist").scrollTop(); 
+		
+		var timer = setTimeout(function(){
+			for(let i = 0;i<timers.length-1;i++){
+				clearTimeout(timers[i]);
+			}
+			  
+			if(a+c+50 > b){
+				console.log("time===========")
+				addSong(songsDetail,songStar,songEnd);
+				songStar = songEnd;
+				songEnd += 20;
+			}
+			
+			timers = [];
+		},800) 
+		
+		timers.push(timer);
+		
+		
 	})
 })

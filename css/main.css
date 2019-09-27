@@ -317,3 +317,6 @@ li {
 	top: 0.15rem;
 	left: 0.15rem;
 }
+.songlist>ul>li.playSong{
+	background-color: #F0F0FF;
+}
