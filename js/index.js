@@ -54,7 +54,6 @@ $(function() {
 	var songs = localStorage.getItem('songs');
 	if(songs){
 		
-		console.log("a"),
 		songs = JSON.parse(songs);
 		songsDetail = songs.playlist.tracks.concat();
 		console.log(songs);
@@ -65,9 +64,11 @@ $(function() {
 		$.ajax({
 		    type: 'GET',
 		    url: 'http://www.arthurdon.top:3000/top/list?idx=1',
+			async:false,
 		    success: function (data) {
-		        console.log('data ==> ', data);
-				songsdata = data;
+				
+		        console.log('data ==> ');
+				//songsdata = data;
 		        localStorage.setItem('songs', JSON.stringify(data))
 		
 		        songsDetail = data.playlist.tracks.concat();
@@ -78,7 +79,11 @@ $(function() {
 		        }
 		    },
 			error :function(data){
-				console.log(data,"失败了。。。。")
+				console.log("失败")
+				songsdata = beifen;
+				localStorage.setItem('songs', JSON.stringify(beifen));
+				songsDetail = beifen.playlist.tracks.concat();
+				console.log(songsDetail)
 			}
 		})	
 	}
