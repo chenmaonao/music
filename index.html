@@ -13,15 +13,28 @@
 	<body>
 
 		<div class="main-box">
-			<div class="top-nav"></div>
-
-			<div class="songlist">
-				<ul></ul>
-
+			<!-- 顶部导航栏 -->
+			<div class="top-nav">
+				<div class="back"></div>
 			</div>
+			
+			<!-- 歌曲曲单 -->
+			<div class="songlist" data-show = "0">
+				<ul></ul>
+			</div>
+			
+			<!-- 歌曲主页面 -->
+			<div class="song-t">
+				<ul>
+					<li class="hot-song">热门歌曲<span>0</span></li>
+					<li>本地歌曲<span>0</span></li>
+				</ul>
+			</div>
+			
+			
 
 			<!-- 专辑图片 -->
-			<div class="show-img">
+			<div class="show-img" data-show = "0">
 				<div class="photo"></div>
 				
 				<div class="show-option">
@@ -33,12 +46,17 @@
 					</ul>
 				</div>
 			</div>
+			
+			<div class="lyric" data-show = "0">
+				<ul>
+					<li class="ac">暂无歌词~</li>
+				</ul>
+			</div>
 
 			<div class="bottom-audio">
 				<span class="currenTime">00:00</span>
 				<span class="duration">00:00</span>
-				<audio id="myAudio" data-id="006" preload data-staus="0" data-touch="true" src=""
-				 loop="loop"></audio>
+				<audio id="myAudio" data-id="0" preload data-staus="0" data-touch="true" src=""></audio>
 
 				<div class="img-box"></div>
 
@@ -60,7 +78,7 @@
 					<div class="play-rate">
 						<ul class="myrate">
 							<li data-rate = "0.75">0.75倍</li>
-							<li data-rate = "1.00" class="activate">1.00倍</li>
+							<li data-rate = "1.00" class="activate1">1.00倍</li>
 							<li data-rate = "1.25">1.25倍</li>
 							<li data-rate = "1.50">1.50倍</li>
 						</ul>
