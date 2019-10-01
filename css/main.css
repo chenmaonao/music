@@ -35,7 +35,7 @@ li {
 }
 
 .bottom-audio .img-box {
-	background-image: url("http://img.52jbj.com/d/file/170724/20170724003329766.png");
+	background-image: url(../img/peiqi.jpg);
 	background-size: cover;
 	position: absolute;
 	top: 50%;
@@ -102,9 +102,9 @@ li {
 } */
 .progress .layer {
 	position: absolute;
-	top: 0;
+	top: -0.05rem;
 	width: 100%;
-	height: 160%;
+	height: 0.16rem;
 	z-index: 2;
 }
 
@@ -122,8 +122,8 @@ li {
 	border-radius: 0.6rem;
 	width: 0.7rem;
 	height: 0.7rem;
-	padding: 0.2rem;
-	margin-right: 0.26rem;
+	/* padding: 0.2rem; */
+	margin: 0.26rem;
 	float: left;
 }
 
@@ -138,7 +138,7 @@ li {
 }
 
 .music-control .play-pause {
-	padding-top: 0.25rem;
+	margin-top: 0.3rem;
 	width: 0.6rem;
 	height: 0.6rem;
 }
@@ -203,13 +203,13 @@ li {
 
 .songlist .song {
 	height: 0.5rem;
-	font-size: 0.4rem;
+	font-size: 0.3rem;
 }
 
 .songlist .singer {
 	height: 0.5rem;
-	font-size: 0.3rem;
-	color: #333333;
+	font-size: 0.2rem;
+	color: #333322;
 
 }
 
@@ -230,7 +230,7 @@ li {
 	height: 5rem;
 	padding: 0.5rem;
 	border-radius: 6rem;
-	background-image: url(../../meizu/img/dddeeff.jpg);
+	background-image: url(../img/peiqi.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-color: #000000;
@@ -360,11 +360,11 @@ li {
 .song-t>ul>li{
 	padding: 0.2rem 0.6rem;
 	height: 1rem;
-	font-size: 0.4rem;
+	font-size: 0.35rem;
 	line-height: 1rem;
 	color: #FFFFFF;
 	background-color: rgba(85,75,74,0.5);
-	border-bottom: 1px solid #EEEEDD;
+	border-bottom: 1px solid #dddddd;
 	position: relative;
 }
 .song-t>ul>li>span{

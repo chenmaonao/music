@@ -107,6 +107,7 @@ $(function() {
 
 		songs = JSON.parse(songs);
 		songsDetail = songs.playlist.tracks.concat();
+		$(".hot-song>span").text(songsDetail.length);
 		console.log(songs);
 		for (var i = 0; i < songs.privileges.length; i++) {
 			songsId.push(songs.privileges[i].id);
@@ -123,7 +124,7 @@ $(function() {
 				localStorage.setItem('songs', JSON.stringify(data))
 
 				songsDetail = data.playlist.tracks.concat();
-
+				$(".hot-song>span").text(songsDetail.length);
 				//保存歌曲id
 				for (var i = 0; i < data.privileges.length; i++) {
 					songsId.push(data.privileges[i].id);
@@ -134,6 +135,7 @@ $(function() {
 				songsdata = beifen;
 				localStorage.setItem('songs', JSON.stringify(beifen));
 				songsDetail = beifen.playlist.tracks.concat();
+				$(".hot-song>span").text(songsDetail.length);
 				console.log(songsDetail);
 			}
 		})
@@ -305,9 +307,17 @@ $(function() {
 	}
 
 	//播放暂停
-	$(".play-pause").on("click", function() {
-
+	$(".play-pause>img").on("click", function() {
+		
+		var a = $(".play-pause");
+		if(a.data("first")){
+			a.data("first",0);
+			RadomSong();
+			
+			return;
+		}
 		playPause();
+		
 
 	})
 
@@ -380,19 +390,25 @@ $(function() {
 			a.addClass("playSong");
 			console.log(mode.dataset.mode)
 		} else if (mode.dataset.mode == "random") {
-			lastSong = $("#myAudio").data("id");
-			let lis = $(".songlist>ul>li");
-			let next_song = $(lis[Math.floor(Math.random() * lis.length)]);
-			let n_id = next_song.data("id")
-			$(".playSong").removeClass("playSong");
-			next_song.addClass("playSong");
-			changeMusic(n_id);
-			//$("#myAudio").data("id",n_id);
+			
+			
+			RadomSong();
+			
+		
 
 		}
 	}
 
-
+	function RadomSong(){
+		lastSong = $("#myAudio").data("id");
+		let lis = $(".songlist>ul>li");
+		let next_song = $(lis[Math.floor(Math.random() * lis.length)]);
+		let n_id = next_song.data("id")
+		$(".playSong").removeClass("playSong");
+		next_song.addClass("playSong");
+		changeMusic(n_id);
+		//$("#myAudio").data("id",n_id);
+	}
 
 	function prevSong() {
 		//ordinal random loop;
@@ -425,12 +441,23 @@ $(function() {
 		}
 	}
 
-	$(".next").on("click", function() {
+	$(".next>img").on("click", function() {
+		var a = $(".play-pause");
+		if(a.data("first")){
+			a.data("first",0);
+			RadomSong();
+			return;
+		}
 		nextSong()
 	})
 
-	$(".previous").on("click", function() {
-
+	$(".previous>img").on("click", function() {
+		var a = $(".play-pause");
+		if(a.data("first")){
+			a.data("first",0);
+			RadomSong();
+			return;
+		}
 		prevSong();
 	})
 
