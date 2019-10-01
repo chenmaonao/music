@@ -161,7 +161,7 @@ $(function() {
 			);
 			li.on("click", function() {
 				var id = $(this).data("id");
-				console.log(id)
+				$(".play-pause").data("first",0);
 				changeMusic(id);
 				$(".playSong").removeClass("playSong");
 				$(this).addClass("playSong");
