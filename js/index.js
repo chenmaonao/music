@@ -44,7 +44,7 @@ $(function() {
 
 		$.ajax({
 			type: 'GET',
-			url: 'http://www.arthurdon.top:3000/lyric?id=' + id,
+			url: '//www.arthurdon.top:3000/lyric?id=' + id,
 			success: function(data) {
 				console.log(data)
 				$(".lyric>ul").html(" ")
@@ -115,7 +115,7 @@ $(function() {
 	} else {
 		$.ajax({
 			type: 'GET',
-			url: 'http://www.arthurdon.top:3000/top/list?idx=1',
+			url: '//www.arthurdon.top:3000/top/list?idx=1',
 			async: false,
 			success: function(data) {
 
